@@ -1,6 +1,6 @@
 // validar si podemos tener sw
 if (navigator.serviceWorker){
-    console.log("Si esta dispnoble el tranajo con el Service worked");
+    console.log("Si esta dispnoble el trabajo con el Service worked");
     //instalar el service worker
     navigator.serviceWorker.register('/sw.js');
 }else
