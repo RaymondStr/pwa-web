@@ -1,5 +1,5 @@
 //definir los caches a utilizar
-const CACHE_APP_SHELL = 'mi-app-shellv3';
+const CACHE_APP_SHELL = 'mi-app-shellv4';
 const CACHE_DINAMICO = 'cache-dinamicov3';
 const CACHE_INMUTABLE = 'cache-inmutablev2';
 
@@ -13,8 +13,10 @@ self.addEventListener('install', event => {
             '/index.html',
             '/css/style.css',
             '/js/app.js',
-            '/img/bannerBolsaDeTrabajo.jpeg',
-            '/img/UTH-LOGO-VERT.png'
+            '/img/bannerDragonBall.jpg',
+            '/img/DB-LOGO.png',
+            '/img/icons/favicon.ico',
+            '/manifest.json',
             
         ]);
     }); 
@@ -54,10 +56,11 @@ self.addEventListener('activate', event => {
     console.log('El SW se ha activado');
 
     event.waitUntil(borrarCache); 
+});  
 
 
-self.addEventListener('fetch', event => {
-    console.log(event.request.url);
+    self.addEventListener('fetch', event => {
+    console.log(event.request.url); 
     //estrategia de gestion del cache - Cache only
     //event.respondWith(
     //    caches.match(event.request)
@@ -75,8 +78,12 @@ self.addEventListener('fetch', event => {
               fetch(event.request).then(nuevoElemento => {
                 caches.open(CACHE_DINAMICO).then(cache => {
                     return cache.put(event.request, nuevoElemento);
+                    borrarCache(); 
                 });
                 return nuevoElemento.clone();
+             }).
+             catch (error => {
+                 console.log("error en fetch de estrategia de cache ",event.request.url, error);
              });
 
              return nElem;
