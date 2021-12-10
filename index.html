@@ -61,6 +61,15 @@
             <p>
                 Aqui puedes ver todo el enime de tu preferencia sin limites.
             </p>
+            <hr>
+            <script>
+                function activarNotificaciones() {
+                  Notification.requestPermission().then(function(result) {
+                    console.log(result);
+                  });
+                }
+            </script>
+            <h3>Activa notificaciones para Animes nuevos.<button onclick="activarNotificaciones()">Activar</button></h3>
             <div class="container-fluid">
               <div class="row">
                   <!--Data-->
@@ -78,31 +87,31 @@
                               aria-label="Slide 5"></button>
                       </div>
                       <div class="carousel-inner">
-                          <div class="carousel-item active" data-bs-interval="10000">
+                          <div class="carousel-item active" data-bs-interval="3000">
                               <img src="./img/carrucel/goku1.jpg" class="d-block w-100" style="height: 350px;" alt="...">
                               <div class="carousel-caption d-none d-md-block">
                                   <h5>Goku 1</h5>
                               </div>
                           </div>
-                          <div class="carousel-item" data-bs-interval="2000">
+                          <div class="carousel-item" data-bs-interval="3000">
                               <img src="./img/carrucel/goku2.jpg" class="d-block w-100" style="height: 350px;" alt="...">
                               <div class="carousel-caption d-none d-md-block">
                                   <h5>Goku 2</h5>
                               </div>
                           </div>
-                          <div class="carousel-item">
+                          <div class="carousel-item" data-bs-interval="3000">
                               <img src="./img/carrucel/goku3.jpg" class="d-block w-100" style="height: 350px;" alt="...">
                               <div class="carousel-caption d-none d-md-block">
                                   <h5>Goku 3</h5>
                               </div>
                           </div>
-                          <div class="carousel-item">
+                          <div class="carousel-item" data-bs-interval="3000">
                             <img src="./img/carrucel/goku4.jpg" class="d-block w-100" style="height: 350px;" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Goku 4</h5>
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-bs-interval="3000">
                           <img src="./img/carrucel/goku5.jpg" class="d-block w-100" style="height: 350px;" alt="...">
                           <div class="carousel-caption d-none d-md-block">
                               <h5>Goku 5</h5>
